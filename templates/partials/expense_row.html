@@ -1,0 +1,14 @@
+<tr id="expense-row-{{ expense.id }}" class="expense-row">
+    <td>{{ expense.date }}</td>
+    <td>{{ expense.description }}</td>
+    <td><span class="badge category-badge category-{{ expense.category|lower }}">{{ expense.category }}</span></td>
+    <td class="text-end fw-semibold">${{ "%.2f"|format(expense.amount) }}</td>
+    <td class="text-center">
+        <button class="btn btn-sm btn-outline-primary me-1 btn-edit" data-id="{{ expense.id }}" title="Edit">
+            <i class="bi bi-pencil"></i>
+        </button>
+        <button class="btn btn-sm btn-outline-danger btn-delete" data-id="{{ expense.id }}" title="Delete">
+            <i class="bi bi-trash"></i>
+        </button>
+    </td>
+</tr>

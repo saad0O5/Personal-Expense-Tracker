@@ -1,0 +1,245 @@
+/**
+ * Custom styles for the Personal Expense Tracker.
+ * Complements Bootstrap 5 with additional visual polish.
+ */
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+
+body {
+    padding-top: 56px; /* navbar height */
+    background-color: #f5f7fa;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.main-content {
+    padding-top: 1.5rem;
+    padding-bottom: 3rem;
+}
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+
+.sidebar {
+    position: fixed;
+    top: 56px;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 0;
+    background-color: #fff;
+    border-right: 1px solid #e9ecef;
+    overflow-y: auto;
+}
+
+.sidebar .nav-link {
+    color: #495057;
+    padding: 0.75rem 1.25rem;
+    font-weight: 500;
+    border-left: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #f8f9fa;
+    color: #0d6efd;
+}
+
+.sidebar .nav-link.active {
+    color: #0d6efd;
+    background-color: #e7f1ff;
+    border-left-color: #0d6efd;
+}
+
+.sidebar .nav-link i {
+    width: 1.25rem;
+    text-align: center;
+}
+
+/* ============================================================
+   STAT CARDS
+   ============================================================ */
+
+.stat-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 0.75rem;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+}
+
+.stat-icon {
+    min-width: 3rem;
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================================
+   CATEGORY BADGES
+   ============================================================ */
+
+.bg-purple {
+    background-color: #6f42c1 !important;
+}
+
+.bg-orange {
+    background-color: #fd7e14 !important;
+    color: #fff !important;
+}
+
+.badge {
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+/* ============================================================
+   TABLE
+   ============================================================ */
+
+.expense-row {
+    transition: background-color 0.2s ease, opacity 0.4s ease;
+}
+
+.expense-row:hover {
+    background-color: #f0f4ff !important;
+}
+
+.sortable {
+    user-select: none;
+    white-space: nowrap;
+}
+
+.sortable:hover {
+    background-color: #e9ecef;
+}
+
+.sort-icon {
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+/* Fade-in highlight for new/edited rows */
+@keyframes highlightFadeIn {
+    0% {
+        background-color: #d1ecf1;
+        opacity: 0.5;
+    }
+    100% {
+        background-color: transparent;
+        opacity: 1;
+    }
+}
+
+.highlight-new {
+    animation: highlightFadeIn 1.5s ease-out;
+}
+
+/* Fade-out for deleted rows */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+}
+
+.fade-out {
+    animation: fadeOut 0.4s ease forwards;
+}
+
+/* ============================================================
+   CHARTS
+   ============================================================ */
+
+.chart-container {
+    min-height: 250px;
+}
+
+/* ============================================================
+   CARDS & MISC
+   ============================================================ */
+
+.card {
+    border-radius: 0.75rem;
+}
+
+.card-header {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 0.875rem 1.25rem;
+}
+
+.char-counter {
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
+/* ============================================================
+   TOAST OVERRIDES
+   ============================================================ */
+
+.toast-container {
+    z-index: 1090;
+}
+
+.toast {
+    border-radius: 0.5rem;
+    min-width: 280px;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 767.98px) {
+    .sidebar {
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .main-content {
+        padding-top: 1rem;
+    }
+
+    .chart-container {
+        min-height: 200px;
+    }
+
+    .stat-card .card-body {
+        padding: 0.875rem;
+    }
+}
+
+/* ============================================================
+   SCROLLBAR (webkit)
+   ============================================================ */
+
+.sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #ced4da;
+    border-radius: 2px;
+}
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+
+#emptyState i {
+    opacity: 0.3;
+}
